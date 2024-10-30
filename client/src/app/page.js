@@ -1,9 +1,14 @@
-import Image from "next/image";
+import Landing from "@/Components/Home/Landing";
+
 
 export default function Home() {
   return (
     <div className="">
-      this is the message from the gaurav ghuge
+
+    
+
+      <Landing />
+
     </div>
   );
 }
