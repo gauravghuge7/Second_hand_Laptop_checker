@@ -22,6 +22,11 @@ export default function Navbar() {
                <AiOutlineMenu size={28} />
             </button>
 
+            
+            <section>
+               
+            </section>
+
             <h1 className="text-xl font-bold">Laptop Check</h1>
 
             {/* Desktop Links */}
@@ -29,7 +34,7 @@ export default function Navbar() {
                <Link href="/"><button className="hover:text-gray-300">Home</button></Link>
                <Link href="/features"><button className="hover:text-gray-300">Features</button></Link>
                <Link href="/pricing"><button className="hover:text-gray-300">Pricing</button></Link>
-               <Link href="/contact"><button className="hover:text-gray-300">Contact</button></Link>
+               <Link href="/Contact"><button className="hover:text-gray-300">Contact</button></Link>
             </div>
          </nav>
 
@@ -63,7 +68,7 @@ export default function Navbar() {
                <Link href="/pricing">
                   <button className="text-gray-300 hover:text-white">Pricing</button>
                </Link>
-               <Link href="/contact">
+               <Link href="/Contact">
                   <button className="text-gray-300 hover:text-white">Contact</button>
                </Link>
             </nav>

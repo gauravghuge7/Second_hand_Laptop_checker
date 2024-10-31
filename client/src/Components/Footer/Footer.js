@@ -17,7 +17,7 @@ export default function Footer() {
             <Link href="/features">
               <button className="hover:text-white transition-colors">Features</button>
             </Link>
-            <Link href="/contact">
+            <Link href="/Contact">
               <button className="hover:text-white transition-colors">Contact</button>
             </Link>
           </div>

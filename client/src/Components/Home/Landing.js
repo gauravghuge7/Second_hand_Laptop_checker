@@ -7,8 +7,8 @@ export default function Landing() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-800 to-blue-600 text-white text-center px-6">
       {/* Content Section */}
-      <h1 className="text-4xl md:text-5xl font-bold mb-6 transition-transform duration-300 hover:scale-105">
-        Welcome to Laptop Check
+      <h1 className="text-4xl md:text-5xl p-4 pt-8 font-bold mb-6 transition-transform duration-300 hover:scale-105">
+        Welcome to Laptop Checking System 
       </h1>
       <p className="text-lg md:text-xl mb-10 max-w-2xl text-blue-100 transition-transform duration-300 hover:scale-105">
         Get instant insights into your laptop’s performance, specifications, and display quality,
@@ -16,8 +16,8 @@ export default function Landing() {
       </p>
 
       {/* Check Laptop Button */}
-      <Link href="/check-laptop">
-        <button className="px-8 py-3 bg-blue-900 hover:bg-blue-700 rounded-full text-lg font-semibold transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl">
+      <Link href="/User/CheckLaptop">
+        <button className="px-8 py-3 bg-green-500 hover:bg-green-600 rounded-full text-lg font-semibold transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl">
           Check Laptop
         </button>
       </Link>
