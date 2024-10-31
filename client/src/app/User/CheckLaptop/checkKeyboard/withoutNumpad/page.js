@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 
 const KeyboardLayout = () => {
+   
    const keys = [
       [
          { keyName: 'Esc', keyStyle: 'w-12' },
