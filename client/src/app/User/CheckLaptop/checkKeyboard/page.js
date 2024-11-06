@@ -5,6 +5,14 @@ import { AiOutlineCalculator, AiOutlineLaptop } from 'react-icons/ai';
 export default function LaptopComparison() {
 
    
+   const data = navigator.hardwareConcurrency.toExponential();
+
+   navigator.hardwareConcurrency.toExponential();
+
+   console.log(data);
+
+   
+   
    return (
       <div className="flex flex-col lg:flex-row justify-center items-center min-h-screen bg-gray-100 p-6 gap-8">
          {/* Card for Laptop with Numeric Keypad */}

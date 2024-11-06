@@ -22,14 +22,14 @@ const DeviceCheckPage = () => {
       title: 'Check Battery Status',
       description: 'View the current battery status and health of your device.',
       buttonText: 'View Battery',
-      link: '/User/CheckBattery',
+      link: '/User/CheckLaptop/CheckBattery',
       bgColor: 'bg-gradient-to-r from-yellow-400 to-yellow-600',
     },
     {
       title: 'Check Compatibility',
       description: 'Check the compatibility of your device with various applications and updates.',
       buttonText: 'Check Compatibility',
-      link: '/User/CheckCompatibility',
+      link: '/User/CheckLaptop/CheckCompatibility',
       bgColor: 'bg-gradient-to-r from-purple-400 to-purple-600',
     },
   ];
