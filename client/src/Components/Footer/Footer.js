@@ -7,7 +7,7 @@ export default function Footer() {
         {/* Top section with links */}
         <div className="flex flex-wrap justify-between items-center mb-4">
           <div>
-            <h2 className="text-xl font-semibold text-white">Laptop Check</h2>
+            <h2 className="text-xl font-semibold text-white">Computer Software and Hardware Checking System </h2>
             <p className="text-gray-400">Your go-to app for checking and evaluating laptops.</p>
           </div>
           <div className="flex space-x-6 mt-4 sm:mt-0">
@@ -41,7 +41,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="text-center text-gray-400 text-sm">
-          &copy; {new Date().getFullYear()} Laptop Check. All rights reserved.
+          &copy; {new Date().getFullYear()} Gaurav Ghuge. All rights reserved.
         </div>
       </div>
     </footer>

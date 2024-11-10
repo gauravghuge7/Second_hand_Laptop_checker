@@ -28,7 +28,7 @@ export default function Navbar() {
                <AiOutlineMenu size={28} />
             </button>
 
-            <h1 className="text-xl font-bold">Laptop Check</h1>
+            <h1 className="text-xl font-bold">Computer Testing</h1>
 
             {/* Display Current Path with Clickable Segments */}
             <div className="hidden lg:flex items-center space-x-2">
@@ -73,7 +73,7 @@ export default function Navbar() {
             } transition-transform duration-300 ease-in-out`}
          >
             <div className="flex items-center justify-between p-4 border-b border-gray-700">
-               <h2 className="text-xl font-semibold">Laptop Check</h2>
+               <h2 className="text-xl font-semibold">Computer Software and Hardware Checking System </h2>
                <button onClick={toggleSidebar} className="text-gray-300">
                   <AiOutlineClose size={24} />
                </button>

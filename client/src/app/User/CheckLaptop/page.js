@@ -32,6 +32,28 @@ const DeviceCheckPage = () => {
       link: '/User/CheckLaptop/CheckCompatibility',
       bgColor: 'bg-gradient-to-r from-purple-400 to-purple-600',
     },
+    {
+      title: 'Check Storage',
+      description: 'Inspect available storage and storage health on your device.',
+      buttonText: 'Check Storage',
+      link: '/User/CheckLaptop/CheckStorage',
+      bgColor: 'bg-gradient-to-r from-indigo-400 to-indigo-600',
+    },
+    {
+      title: 'Check Duplicate Parts',
+      description: 'Ensure all parts are compatible and avoid duplicates.',
+      buttonText: 'Check Parts',
+      link: '/User/CheckLaptop/CheckDuplicateParts',
+      bgColor: 'bg-gradient-to-r from-red-400 to-red-600',
+    },
+    {
+      title: 'Check Ports',
+      description: 'Verify the functionality of all device ports.',
+      buttonText: 'Check Ports',
+      link: '/User/CheckLaptop/CheckPorts',
+      bgColor: 'bg-gradient-to-r from-teal-400 to-teal-600',
+    },
+    // Additional cards can be added here
   ];
 
   return (
@@ -46,11 +68,10 @@ const DeviceCheckPage = () => {
           >
             <h2 className="text-xl font-semibold mb-2 text-white">{card.title}</h2>
             <p className="mb-4 text-white">{card.description}</p>
-            <Link
-              href={card.link}
-              className="bg-white hover:bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded transition duration-200"
-            >
-              {card.buttonText}
+            <Link href={card.link}>
+              <button className="bg-white hover:bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded transition duration-200">
+                {card.buttonText}
+              </button>
             </Link>
           </div>
         ))}

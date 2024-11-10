@@ -8,7 +8,7 @@ export default function Landing() {
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-800 to-blue-600 text-white text-center px-6">
       {/* Content Section */}
       <h1 className="text-4xl md:text-5xl p-4 pt-8 font-bold mb-6 transition-transform duration-300 hover:scale-105">
-        Welcome to Laptop Checking System 
+        Welcome to Computer Software and Hardware Checking System 
       </h1>
       <p className="text-lg md:text-xl mb-10 max-w-2xl text-blue-100 transition-transform duration-300 hover:scale-105">
         Get instant insights into your laptop’s performance, specifications, and display quality,
