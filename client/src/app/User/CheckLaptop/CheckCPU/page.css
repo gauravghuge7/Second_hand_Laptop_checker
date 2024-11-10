@@ -1,0 +1,96 @@
+/* CheckCpu.css */
+
+.cpu-check-container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin-top: 40px;
+   padding: 20px;
+   border-radius: 12px;
+   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+   max-width: 400px;
+   margin: auto;
+   background-color: #f3f4f6;
+ }
+ 
+ .title {
+   font-size: 1.8rem;
+   font-weight: bold;
+   margin-bottom: 16px;
+   color: #333;
+ }
+ 
+ .cpu-info {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 20px;
+   border-radius: 10px;
+   transition: all 0.5s ease-in-out;
+ }
+ 
+ .cpu-info.loading {
+   opacity: 0.7;
+ }
+ 
+ .loading-text {
+   color: #888;
+   font-size: 1.2rem;
+   animation: pulse 1.5s infinite;
+ }
+ 
+ .cpu-detail {
+   font-size: 1.4rem;
+   color: #555;
+   display: flex;
+   gap: 8px;
+   margin-bottom: 12px;
+ }
+ 
+ .label {
+   font-weight: bold;
+ }
+ 
+ .compatibility {
+   font-size: 1.4rem;
+   padding: 8px 16px;
+   border-radius: 8px;
+   color: white;
+   transition: background-color 0.4s ease;
+ }
+ 
+ .compatibility.compatible {
+   background-color: #4caf50;
+   animation: slideIn 0.5s ease forwards;
+ }
+ 
+ .compatibility.not-compatible {
+   background-color: #f44336;
+   animation: slideIn 0.5s ease forwards;
+ }
+ 
+ /* Loading pulse animation */
+ @keyframes pulse {
+   0% {
+     opacity: 0.7;
+   }
+   50% {
+     opacity: 1;
+   }
+   100% {
+     opacity: 0.7;
+   }
+ }
+ 
+ /* Slide-in animation for compatibility result */
+ @keyframes slideIn {
+   from {
+     transform: translateY(20px);
+     opacity: 0;
+   }
+   to {
+     transform: translateY(0);
+     opacity: 1;
+   }
+ }
+ 

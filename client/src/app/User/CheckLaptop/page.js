@@ -15,7 +15,7 @@ const DeviceCheckPage = () => {
       title: 'Check Processing Power',
       description: 'Analyze the CPU and its performance under load.',
       buttonText: 'Check CPU',
-      link: '/User/CheckCPU',
+      link: '/User/CheckLaptop/CheckCPU',
       bgColor: 'bg-gradient-to-r from-blue-400 to-blue-600',
     },
     {

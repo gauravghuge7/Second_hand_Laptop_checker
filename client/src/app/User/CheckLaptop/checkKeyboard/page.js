@@ -5,11 +5,6 @@ import { AiOutlineCalculator, AiOutlineLaptop } from 'react-icons/ai';
 export default function LaptopComparison() {
 
    
-   const data = navigator.hardwareConcurrency.toExponential();
-
-   navigator.hardwareConcurrency.toExponential();
-
-   console.log(data);
 
    
    
