@@ -15,6 +15,11 @@ const CheckPorts = () => {
         filters: []  // You can specify filters to select particular devices
       });
 
+
+      // await navigator.hardwareConcurrency.toString();
+
+      console.log(navigator.hardwareConcurrency.toString());
+
       // Log the device to console (for debugging)
       console.log(device);
 
