@@ -151,7 +151,6 @@ const KeyboardLayout = () => {
             {row.map(({ keyName, keyStyle }, keyIndex) => (
               <button
                 key={`${keyName}-${rowIndex}-${keyIndex}`}
-                onClick={() => handleKeyClick(keyName)}
                 className={`${keyStyle} ${
                   keyStates[keyName] && testStarted
                     ? "bg-green-500"  // Key turns green when pressed
