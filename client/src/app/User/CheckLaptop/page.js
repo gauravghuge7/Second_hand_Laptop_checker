@@ -3,6 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 
 const DeviceCheckPage = () => {
+  
   const cards = [
     {
       title: 'Check Keyboard',
@@ -56,9 +57,24 @@ const DeviceCheckPage = () => {
     // Additional cards can be added here
   ];
 
+
+  //  
+  
   return (
     <div className="flex flex-col items-center p-8 bg-gray-100 min-h-screen">
       <h1 className="text-3xl font-bold mb-8 text-gray-800">Device Check</h1>
+
+      <div class="bg-blue-100 p-6 rounded-lg shadow-xl max-w-lg mx-auto mt-10 mb-8">
+        <h2 class="text-2xl font-semibold text-green-600 mb-4">Exciting New Features Coming Soon!</h2>
+        
+        <p class="text-gray-700 text-lg mb-4">We are in the process of building some awesome functionalities for you. From this features some are not working for now, but we'll update them soon with dynamic content!</p>
+        <ul class="text-gray-600 text-base list-disc pl-5 mb-6 space-y-2">
+            
+        </ul>
+        <p class="text-gray-500 text-sm">We appreciate your patience and support. Stay tuned for the updates!</p>
+      </div>
+
+
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-8">
         {cards.map((card, index) => (
@@ -68,9 +84,9 @@ const DeviceCheckPage = () => {
           >
             <h2 className="text-xl font-semibold mb-2 text-white">{card.title}</h2>
             <p className="mb-4 text-white">{card.description}</p>
-            <Link href={card.link}>
+            <Link href={card.link} >
               <button className="bg-white hover:bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded transition duration-200">
-                {card.buttonText}
+                Start Check
               </button>
             </Link>
           </div>
