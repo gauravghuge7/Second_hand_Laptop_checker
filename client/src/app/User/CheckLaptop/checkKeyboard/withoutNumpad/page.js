@@ -96,21 +96,16 @@ const KeyboardLayout = () => {
 
   const [keyStates, setKeyStates] = useState({});
   const [testStarted, setTestStarted] = useState(false);
+  const [timer, setTimer] = useState(null);
 
   const handleStartTest = () => {
     // Reset key states before starting the test
     setKeyStates({});
     setTestStarted(true);
+    setTimer(setTimeout(handleTimer, 1000));
   };
 
-  const handleKeyClick = (keyName) => {
-    if (testStarted) {  // Only allow key state change if the test has started
-      setKeyStates((prevState) => ({
-        ...prevState,
-        [keyName]: true,  // Mark the key as pressed
-      }));
-    }
-  };
+
 
   useEffect(() => {
     const handlePhysicalKeyPress = (event) => {
@@ -141,6 +136,15 @@ const KeyboardLayout = () => {
       >
         Start Test
       </button>
+
+      <div className="flex flex-col items-center justify-center">
+        <p className="text-2xl font-bold">
+          {timer !== null ? "Time Left" : ""}
+        </p>
+        <p className="text-2xl font-bold">
+          {timer !== null ? timer : ""}
+        </p>
+      </div>
 
       <div className="flex flex-col gap-y-2">
         {keys.map((row, rowIndex) => (

@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import Link from 'next/link';
+import Dashboard from './dashboard/page';
 
 const DeviceCheckPage = () => {
   
@@ -96,6 +97,12 @@ const DeviceCheckPage = () => {
       <Link href="/User/CheckLaptop/dashboard">
         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded transition duration-200">
           View Dashboard
+        </button>
+      </Link>
+
+      <Link href="/User/CheckLaptop/Checkup">
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded transition duration-200">
+         All Dashboard
         </button>
       </Link>
     </div>
