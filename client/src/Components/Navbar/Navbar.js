@@ -30,6 +30,12 @@ export default function Navbar() {
 
             <h1 className="text-xl font-bold">Computer Testing</h1>
 
+            <Link href="/User/CheckLaptop/Checkup">
+               <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-200">
+                  Start Basic CheckUp Here
+               </button>
+            </Link>
+
             {/* Display Current Path with Clickable Segments */}
             <div className="hidden lg:flex items-center space-x-2">
                <span className="text-gray-300">Current Path:</span>

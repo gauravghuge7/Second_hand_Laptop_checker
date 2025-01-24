@@ -16,7 +16,7 @@ export default function Landing() {
       </p>
 
       {/* Check Laptop Button */}
-      <Link href="/User/CheckLaptop">
+      <Link href="/User">
         <button className="px-8 py-3 bg-green-500 hover:bg-green-600 rounded-full text-lg font-semibold transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl">
           Check Laptop
         </button>
