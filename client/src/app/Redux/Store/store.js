@@ -1,8 +1,8 @@
 "use client"; // Ensure this is at the top
 
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import laptopReducer from '../reducers/laptopReducer';
 
+import laptopReducer from "./laptopReducer";
 
 
 const reducer = combineReducers({
