@@ -1,95 +1,131 @@
 "use client";
 
-import { usePathname } from 'next/navigation';
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
+import { usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { Button } from "@/components/ui/button"; // Shadcn Button component
+import { cn } from "@/lib/utils"; // Utility from shadcn for className merging
 
 export default function Navbar() {
-   const [sidebarOpen, setSidebarOpen] = useState(false);
-   const [pathSegments, setPathSegments] = useState([]);
-   const pathname = usePathname(); // Use usePathname to track the current route
-   
-   const toggleSidebar = () => {
-      setSidebarOpen(!sidebarOpen);
-   };
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [pathSegments, setPathSegments] = useState([]);
+  const pathname = usePathname();
 
-   // Update path segments on route change
-   useEffect(() => {
-      const segments = pathname.split('/').filter(Boolean); // Filter out empty segments
-      setPathSegments(segments);
-   }, [pathname]); // Update pathSegments whenever pathname changes
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
 
-   return (
-      <div>
-         {/* Navbar */}
-         <nav className="bg-blue-900 text-white px-6 py-4 flex justify-between items-center">
-            <button onClick={toggleSidebar} className="text-white">
-               <AiOutlineMenu size={28} />
-            </button>
+  useEffect(() => {
+    const segments = pathname.split("/").filter(Boolean);
+    setPathSegments(segments);
+  }, [pathname]);
 
-            <h1 className="text-xl font-bold">Computer Testing</h1>
+  return (
+    <div>
+      {/* Navbar */}
+      <nav className="bg-black text-white px-6 py-4 flex justify-between items-center shadow-lg border-b border-gray-800">
+        <div className="flex items-center space-x-4">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleSidebar}
+            className="text-white hover:text-gray-300 hover:bg-gray-900"
+          >
+            <AiOutlineMenu size={24} />
+          </Button>
+          <h1 className="text-xl font-bold">
+            <span className="text-gray-400">Mpute</span>
+            <span className="text-white">Test</span>
+          </h1>
+        </div>
 
-            <Link href="/User/CheckLaptop/Checkup">
-               <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-200">
-                  Start Basic CheckUp Here
-               </button>
-            </Link>
+        {/* Desktop Navigation */}
+        <div className="hidden lg:flex space-x-6 items-center">
+          <Link href="/">
+            <Button variant="ghost" className="text-white hover:text-gray-300 hover:bg-gray-900">
+              Home
+            </Button>
+          </Link>
+          <Link href="/features">
+            <Button variant="ghost" className="text-white hover:text-gray-300 hover:bg-gray-900">
+              Features
+            </Button>
+          </Link>
+          <Link href="/contact">
+            <Button variant="ghost" className="text-white hover:text-gray-300 hover:bg-gray-900">
+              Contact
+            </Button>
+          </Link>
+          <Link href="/download">
+            <Button className="bg-gray-800 hover:bg-gray-700 text-white">
+              Download App
+            </Button>
+          </Link>
+        </div>
+      </nav>
 
-            {/* Display Current Path with Clickable Segments */}
-            <div className="hidden lg:flex items-center space-x-2">
-               <span className="text-gray-300">Current Path:</span>
-               {pathSegments.length > 0 ? (
-                  pathSegments.map((segment, index) => {
-                     const path = '/' + pathSegments.slice(0, index + 1).join('/');
-                     return (
-                        <span key={index} className="flex items-center space-x-1">
-                           <span className="text-gray-300">/</span>
-                           <Link href={path} className="text-gray-200 hover:text-white">
-                              {segment}
-                           </Link>
-                        </span>
-                     );
-                  })
-               ) : (
-                  <span className="text-gray-300">Home</span>
-               )}
-            </div>
+      {/* Sidebar Overlay */}
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-40"
+          onClick={toggleSidebar}
+        />
+      )}
 
-            {/* Desktop Links */}
-            <div className="hidden lg:flex space-x-6">
-               <Link href="/"><button className="hover:text-gray-300">Home</button></Link>
-               <Link href="/features"><button className="hover:text-gray-300">Features</button></Link>
-               <Link href="/contact"><button className="hover:text-gray-300">Contact</button></Link>
-            </div>
-         </nav>
-
-         {/* Sidebar Overlay */}
-         {sidebarOpen && (
-            <div
-               className="fixed inset-0 z-40"
-               onClick={toggleSidebar}
-            />
-         )}
-
-         {/* Sidebar */}
-         <div
-            className={`fixed top-0 left-0 w-64 h-full bg-gray-900 text-white z-50 transform ${
-               sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-            } transition-transform duration-300 ease-in-out`}
-         >
-            <div className="flex items-center justify-between p-4 border-b border-gray-700">
-               <h2 className="text-xl font-semibold">Computer Software and Hardware Checking System </h2>
-               <button onClick={toggleSidebar} className="text-gray-300">
-                  <AiOutlineClose size={24} />
-               </button>
-            </div>
-            <nav className="flex flex-col p-4 space-y-4">
-               <Link href="/"><button className="text-gray-300 hover:text-white">Home</button></Link>
-               <Link href="/features"><button className="text-gray-300 hover:text-white">Features</button></Link>
-               <Link href="/contact"><button className="text-gray-300 hover:text-white">Contact</button></Link>
-            </nav>
-         </div>
+      {/* Sidebar */}
+      <div
+        className={cn(
+          "fixed top-0 left-0 w-64 h-full bg-gray-900 text-white z-50 transform transition-transform duration-300 ease-in-out",
+          sidebarOpen ? "translate-x-0" : "-translate-x-full"
+        )}
+      >
+        <div className="flex items-center justify-between p-4 border-b border-gray-800">
+          <h2 className="text-lg font-bold">
+            <span className="text-gray-400">Mpute</span>
+            <span className="text-white">Test</span>
+          </h2>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleSidebar}
+            className="text-gray-400 hover:text-white hover:bg-gray-800"
+          >
+            <AiOutlineClose size={20} />
+          </Button>
+        </div>
+        <nav className="flex flex-col p-4 space-y-4">
+          <Link href="/">
+            <Button
+              variant="ghost"
+              className="w-full text-left justify-start text-gray-300 hover:text-white hover:bg-gray-800"
+            >
+              Home
+            </Button>
+          </Link>
+          <Link href="/features">
+            <Button
+              variant="ghost"
+              className="w-full text-left justify-start text-gray-300 hover:text-white hover:bg-gray-800"
+            >
+              Features
+            </Button>
+          </Link>
+          <Link href="/contact">
+            <Button
+              variant="ghost"
+              className="w-full text-left justify-start text-gray-300 hover:text-white hover:bg-gray-800"
+            >
+              Contact
+            </Button>
+          </Link>
+          <Link href="/download">
+            <Button className="w-full bg-gray-800 hover:bg-gray-700 text-white">
+              Download App
+            </Button>
+          </Link>
+        </nav>
       </div>
-   );
+    </div>
+  );
 }

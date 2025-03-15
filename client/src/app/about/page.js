@@ -1,39 +1,79 @@
 // pages/about.js
+import Link from "next/link";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"; // Shadcn Card
+import { Button } from "@/components/ui/button"; // Shadcn Button
+
 export default function About() {
-   return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-green-400 to-blue-600 p-6">
-         <div className="max-w-4xl w-full">
-            <h1 className="text-3xl font-bold text-center mb-8 text-white">
-            About Us
-            </h1>
-   
-            {/* Our Story Section */}
-            <div className="bg-white rounded-lg shadow-lg p-6 mb-6 transition-transform transform hover:scale-105 duration-300">
-            <h2 className="text-2xl font-semibold mb-4 text-green-500">Our Story</h2>
-            <p className="text-lg text-gray-700 mb-4">
-               Our journey began in 2022, when a group of passionate individuals came together with a common vision: to create a platform that connects, inspires, and informs. Each member of our team brings a unique background and perspective, allowing us to approach challenges creatively and collaboratively.
-            </p>
-            <p className="text-lg text-gray-700 mb-4">
-               It all started as a small blog where we shared our thoughts on technology, lifestyle, and wellness. As our community grew, we realized the potential to expand our offerings. With the support of our dedicated readers, we transformed our blog into a vibrant hub where people can access resources, engage in meaningful conversations, and discover new ideas.
-            </p>
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-black to-gray-900 p-6">
+      <div className="max-w-4xl w-full">
+        <h1 className="text-4xl font-extrabold text-center mb-12 text-white">
+          About <span className="text-cyan-400">MputeTest</span>
+        </h1>
+
+        {/* Gaurav Ghuge Card */}
+        <Card className="bg-gray-800 rounded-xl shadow-lg border border-gray-700 transition-transform transform hover:scale-105 duration-300">
+          <CardHeader>
+            <CardTitle className="text-2xl font-semibold text-cyan-400">
+              Gaurav Ghuge - Founder of MputeTest
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
+              {/* Profile Image Placeholder */}
+              <img
+                src="https://media.licdn.com/dms/image/v2/D5603AQHKJAINVKWP3A/profile-displayphoto-shrink_800_800/B56ZQidPCRHoAc-/0/1735744877406?e=1747267200&v=beta&t=FlhJUGZ5r93uCABJHxzW461iszwz8qrP2CB32M2HRwI" // Replace with your actual photo URL or local path
+                alt="Gaurav Ghuge"
+                className="w-32 h-32 rounded-full object-cover border-2 border-cyan-500"
+              />
+              <div className="text-gray-300">
+                <p className="text-lg font-medium text-white mb-2">
+                  Software Developer 
+                </p>
+                <p className="text-base mb-2">
+                  <span className="font-semibold">Education:</span> Bachelor’s in Computer Science, Maratha Shikshan Sanstha's Late Pandharinath Patil Institute of Management Studies (BAMU University, 2022 - 2025)
+                </p>
+                <p className="text-base mb-2">
+                  <span className="font-semibold">Location:</span> Aurangabad, Maharashtra, India
+                </p>
+                <p className="text-base mb-4">
+                  I’m Gaurav Ghuge, the founder of MputeTest—a platform born from my passion for technology and problem-solving. As a full-stack developer skilled in MERN stack, Java, and more, I created MputeTest to empower users with a cross-platform tool to diagnose and optimize computer performance. My journey includes building impactful projects like the Laptop Checker App during my internship at Arohi Softwares. I’m driven to innovate and deliver solutions that make tech accessible and effective for everyone.
+                </p>
+                <Link href="https://www.linkedin.com/in/gaurav-ghuge-530651226/" target="_blank" rel="noopener noreferrer">
+                  <Button
+                    variant="outline"
+                    className="bg-transparent border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-black transition-all duration-300"
+                  >
+                    View LinkedIn Profile
+                  </Button>
+                </Link>
+              </div>
             </div>
-   
-            {/* Our Mission Section */}
-            <div className="bg-white rounded-lg shadow-lg p-6 mb-6 transition-transform transform hover:scale-105 duration-300">
-            <h2 className="text-2xl font-semibold mb-4 text-blue-500">Our Mission</h2>
-            <p className="text-lg text-gray-700 mb-4">
-               Our mission is simple: to empower individuals through knowledge and community. We believe that everyone has the potential to make a difference, and we strive to provide the tools and support necessary to help you on your journey.
-            </p>
+            {/* Key Skills */}
+            <div>
+              <p className="text-sm text-gray-400 font-semibold">Key Skills:</p>
+              <ul className="text-sm text-gray-300 list-disc list-inside">
+                <li>Java, C++, JavaScript, TypeScript</li>
+                <li>MERN Stack (MongoDB, Express.js, React, Node.js)</li>
+                <li>Next.js, Spring (Learning), Data Structures</li>
+                <li>AWS, Docker, RESTful APIs</li>
+              </ul>
             </div>
-   
-            {/* Join Us Section */}
-            <div className="bg-white rounded-lg shadow-lg p-6 mb-6 transition-transform transform hover:scale-105 duration-300">
-            <h2 className="text-2xl font-semibold mb-4 text-purple-500">Join Us!</h2>
-            <p className="text-lg text-gray-700 mb-4">
-               We invite you to explore our website, engage with our content, and connect with our community. Your feedback is invaluable, and we would love to hear from you! Together, let&#39;s make the world a better place, one idea at a time.
-            </p>
+            {/* About MputeTest */}
+            <div>
+              <p className="text-sm text-gray-400 font-semibold">About MputeTest:</p>
+              <p className="text-base text-gray-300">
+                MputeTest is my vision to simplify computer diagnostics. Inspired by my experiences developing tools like the Laptop Checker App, I built this platform to provide fast, reliable insights into hardware and software health. Whether you’re a student, professional, or tech enthusiast, MputeTest is here to help you understand and optimize your system. Download the app and join me in making technology work better for all!
+              </p>
             </div>
-         </div>
+          </CardContent>
+        </Card>
       </div>
-   );
+    </div>
+  );
 }

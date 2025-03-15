@@ -2,48 +2,79 @@
 
 import Link from "next/link";
 import { useSelector } from "react-redux";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"; // Shadcn Card
+import { Button } from "@/components/ui/button"; // Shadcn Button
+
+// Mock Redux state (replace with actual Redux store logic)
+const mockLaptopTest = [
+  { name: "Processor (CPU)", route: "/User/CheckLaptop/CheckCPU", checked: false },
+  { name: "Graphics Card (GPU)", route: "/User/CheckLaptop/CheckGPU", checked: false },
+  { name: "RAM (Memory)", route: "/ram", checked: false },
+  { name: "Storage", route: "/User/CheckLaptop/CheckStorage", checked: false },
+  { name: "Display", route: "/display", checked: false },
+  { name: "Operating System (OS)", route: "/os", checked: false },
+  { name: "Battery Life", route: "/battery", checked: false },
+  { name: "Ports and Connectivity", route: "/User/CheckLaptop/CheckPorts", checked: false },
+  { name: "Build Quality and Design", route: "/design", checked: false },
+  { name: "Additional Features", route: "/features", checked: false },
+  { name: "Brand and Warranty", route: "/brand", checked: false },
+  // Additional tests from my side
+  { name: "Keyboard Performance", route: "/keyboard", checked: false },
+  { name: "Cooling System", route: "/cooling", checked: false },
+  { name: "Network Performance", route: "/network", checked: false },
+  { name: "Audio Quality", route: "/audio", checked: false },
+];
 
 const LaptopConfigurations = () => {
-  // Get configurations from Redux state
-  const data = useSelector((state) => state.laptopReducer.laptopTest);
+  // Mock Redux selector (uncomment and adjust if using real Redux)
+  // const data = useSelector((state) => state.laptopReducer.laptopTest);
+  const data = mockLaptopTest; // Using mock data for this example
 
   return (
-    <div className="max-w-4xl mx-auto mt-10 p-5 bg-gray-50 rounded-lg shadow-lg">
-      <h1 className="text-3xl font-bold mb-8 text-gray-700 text-center">
-        Laptop Configurations
-      </h1>
-      <div className="space-y-6">
-        {data.map((config, index) => (
-          <div
-            key={index}
-            className="flex flex-col justify-between p-6 bg-white rounded-lg shadow hover:shadow-md transition border border-gray-200"
-          >
-            {/* Card Header with Test Name */}
-            <div className="mb-4">
-              <h2 className="text-xl font-medium text-blue-600">
-                {config.name}
-              </h2>
-            </div>
-
-            <section>
-               {
-                  config.checked ? 
-                  <h2 className="text-green-500 font-bold">Test Passed</h2> : 
-                  <h2 className="text-red-500 font-bold">Not Check Yet</h2>
-               }
-            </section>
-            
-
-            {/* Card Footer with Start Test Button */}
-            <div className="text-right">
-              <Link href={config.route}>
-                <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded transition">
-                  Start Test
-                </button>
-              </Link>
-            </div>
-          </div>
-        ))}
+    <div className="flex flex-col items-center min-h-screen bg-gradient-to-br from-black to-gray-900 p-6">
+      <div className="max-w-4xl w-full">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-center mb-12 text-white">
+          Laptop <span className="text-cyan-400">Configurations</span>
+        </h1>
+        <div className="space-y-6">
+          {data.map((config, index) => (
+            <Card
+              key={index}
+              className="bg-gray-800 rounded-xl shadow-lg border border-gray-700 transition-transform transform hover:scale-105 duration-300 hover:shadow-cyan-500/50"
+            >
+              <CardHeader>
+                <CardTitle className="text-xl font-semibold text-white">
+                  {config.name}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {/* Status Indicator */}
+                <div>
+                  {config.checked ? (
+                    <h2 className="text-green-400 font-bold">Test Passed</h2>
+                  ) : (
+                    <h2 className="text-red-400 font-bold">Not Checked Yet</h2>
+                  )}
+                </div>
+                {/* Start Test Button */}
+                <div className="text-right">
+                  <Link href={config.route}>
+                    <Button
+                      className="bg-cyan-500 hover:bg-cyan-600 text-black font-semibold rounded-full py-2 px-6 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-cyan-500/50"
+                    >
+                      View Checkup
+                    </Button>
+                  </Link>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </div>
     </div>
   );

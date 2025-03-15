@@ -1,115 +1,96 @@
 // components/Landing.js
 "use client";
-import Link from 'next/link';
-import { useState } from 'react';
+
+import Link from "next/link";
+import { useState } from "react";
+import { Button } from "@/components/ui/button"; // Shadcn Button
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"; // Shadcn Card
+import { FaLaptopCode, FaRocket, FaTools, FaDownload } from "react-icons/fa"; // React Icons
+import FeatureCard from "./FeatureCard"; 
+import About from "@/app/about/page";
+import Checkup from "../CheckUp/page";
 
 export default function Landing() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-800 to-blue-600 text-white text-center px-6">
-      {/* Content Section */}
-      <h1 className="text-4xl md:text-5xl p-4 pt-8 font-bold mb-6 transition-transform duration-300 hover:scale-105">
-        Welcome to Computer Software and Hardware Checking System 
-      </h1>
-      <p className="text-lg md:text-xl mb-10 max-w-2xl text-blue-100 transition-transform duration-300 hover:scale-105">
-        Get instant insights into your laptop’s performance, specifications, and display quality,
-        helping you make informed choices before purchasing!
-      </p>
-
-      {/* Check Laptop Button */}
-      <Link href="/User">
-        <button className="px-8 py-3 bg-green-500 hover:bg-green-600 rounded-full text-lg font-semibold transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl">
-          Check Laptop
-        </button>
-      </Link>
-
-      {/* Coming Soon Section */}
-      <div className="mt-12 text-blue-200 text-sm md:text-base italic transition-opacity duration-300 hover:opacity-80">
-        <p>🚀 Check Android feature is coming soon! Stay tuned for updates.</p>
-      </div>
-
-      {/* Feature Card Section with Hover Effects */}
-      <div className="mt-16 max-w-5xl bg-white text-gray-900 rounded-lg shadow-lg p-8 md:p-12 transition-transform duration-500 hover:scale-105">
-        <h2 className="text-2xl font-bold mb-4 text-center text-blue-900 transition-colors duration-300 hover:text-blue-700">
-          Why Use Laptop Check?
-        </h2>
-        <p className="text-base md:text-lg mb-8 text-gray-800">
-          Our laptop check tool provides comprehensive details on various aspects of laptop performance:
+    <div className="bg-black text-white min-h-screen font-sans">
+      {/* Hero Section */}
+      <section className="relative flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-black to-gray-900 px-6 py-16 overflow-hidden">
+        {/* Neon Background Effect */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#00ffcc_0,_transparent_70%)] opacity-20 animate-pulse" />
+        
+        <h1 className="text-5xl md:text-6xl font-extrabold text-center mb-6 tracking-tight">
+          <span className="text-cyan-400">Mpute</span>
+          <span className="text-white">Test</span>
+        </h1>
+        <p className="text-lg md:text-2xl text-gray-300 max-w-3xl text-center mb-10 leading-relaxed">
+          Diagnose your computer’s hardware and software with our cutting-edge cross-platform app. Fast, reliable, and free!
         </p>
+        <Link href="/download">
+          <Button
+            size="lg"
+            className="bg-cyan-500 hover:bg-cyan-600 text-black font-bold rounded-full px-8 py-6 flex items-center gap-2 shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 transform hover:scale-105"
+          >
+            <FaDownload />
+            Download Now
+          </Button>
+        </Link>
+        <p className="mt-4 text-sm text-gray-400 italic">Available for Windows, macOS, and Linux</p>
+      </section>
 
-        {/* Animated Feature Cards */}
-        <div className="flex flex-col md:flex-row md:space-x-8">
+      {/* Features Section */}
+      <section className="py-20 px-6 bg-gray-900">
+        <h2 className="text-4xl font-bold text-center mb-12 text-white">
+          Why Choose <span className="text-cyan-400">MputeTest</span>?
+        </h2>
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           <FeatureCard
-            title="Performance Evaluation"
-            content="Discover in-depth insights into CPU speed, RAM efficiency, and storage capabilities, giving you a full view of what your laptop can handle."
-            bgColor="bg-blue-50"
+            icon={<FaLaptopCode size={40} className="text-cyan-400" />}
+            title="Comprehensive Diagnostics"
+            content="Analyze CPU, GPU, RAM, storage, and more with detailed reports."
+            bgColor="bg-gray-800"
           />
           <FeatureCard
-            title="Display Quality"
-            content="Assess display features like brightness, color accuracy, and resolution, ensuring you choose the best screen for your needs."
-            bgColor="bg-blue-50"
+            icon={<FaRocket size={40} className="text-cyan-400" />}
+            title="Lightning Fast"
+            content="Get results in seconds with our optimized cross-platform engine."
+            bgColor="bg-gray-800"
           />
           <FeatureCard
-            title="Compatibility Check"
-            content="Check compatibility with popular software and hardware to ensure your laptop supports your favorite tools."
-            bgColor="bg-blue-50"
+            icon={<FaTools size={40} className="text-cyan-400" />}
+            title="Fix & Optimize"
+            content="Receive actionable insights to improve performance and stability."
+            bgColor="bg-gray-800"
           />
         </div>
-      </div>
+      </section>
 
-      {/* Stories Section */}
-      <div className="mt-16 max-w-5xl bg-white text-gray-900 rounded-lg shadow-lg p-8 md:p-12">
-        <h2 className="text-2xl font-bold mb-6 text-center text-blue-900">
-          User Stories
+      {/* CTA Section */}
+      <section className="py-20 px-6 bg-gradient-to-r from-cyan-900 to-black text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
+          Ready to Test Your Machine?
         </h2>
-        
-        {/* Story 1 */}
-        <StoryCard
-          title="Unexpected Issues with a New Laptop Purchase"
-          content="A few days ago, I purchased a laptop for a friend – one Dell and one HP. Both seemed perfect at the time of purchase. However, within a week, a few keys on the keyboard of the HP model stopped working. Then, the display began duplicating, and it turned out the laptop was refurbished. I had no idea the display would be faulty, and without a tool to pre-check, I had no way of knowing. The Laptop Check app would have saved me a lot of trouble!"
-        />
+        <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
+          Download MputeTest now and take control of your computer’s health.
+        </p>
+        <Link href="/download">
+          <Button
+            size="lg"
+            className="bg-white text-cyan-900 hover:bg-gray-200 font-bold rounded-full px-8 py-6 shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 transform hover:scale-105"
+          >
+            Get Started
+          </Button>
+        </Link>
+      </section>
 
-        {/* Story 2 */}
-        <StoryCard
-          title="Screen Brightness and Resolution Problems"
-          content="Recently, I bought a high-spec laptop, but I noticed the screen was dim, and colors looked washed out. Even though it was a high-end model, the display quality was poor, and I struggled with visibility in bright lighting. Had I used Laptop Check, I would have known about the screen's limitations before making the purchase."
-        />
+      <Checkup />
 
-        {/* Story 3 */}
-        <StoryCard
-          title="Compatibility Challenges with Software"
-          content="I’m a graphic designer and need specific software for my work. After buying a laptop, I realized that it wasn’t compatible with some essential design tools. I couldn’t use it effectively for my job. With Laptop Check, I could have checked compatibility in advance to avoid this hassle."
-        />
-      </div>
-    </div>
-  );
-}
+      <About />
 
-/* Reusable FeatureCard Component */
-function FeatureCard({ title, content, bgColor }) {
-  const [isHovered, setIsHovered] = useState(false);
-
-  return (
-    <div
-      className={`flex-1 p-6 ${bgColor} rounded-lg shadow-lg transform transition-transform duration-300 ease-in-out ${isHovered ? 'scale-105 shadow-2xl' : ''}`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <h3 className="text-xl font-semibold text-blue-800 mb-3 transition-colors duration-300 hover:text-blue-600">
-        {title}
-      </h3>
-      <p className="text-gray-700 transition-opacity duration-300 hover:opacity-90">
-        {content}
-      </p>
-    </div>
-  );
-}
-
-/* Reusable StoryCard Component */
-function StoryCard({ title, content }) {
-  return (
-    <div className="bg-blue-50 rounded-lg shadow-md p-6 mb-6 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-      <h3 className="text-xl font-semibold text-blue-800 mb-3">{title}</h3>
-      <p className="text-gray-700">{content}</p>
     </div>
   );
 }

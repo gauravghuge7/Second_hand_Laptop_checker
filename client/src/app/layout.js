@@ -3,10 +3,10 @@
 
 import localFont from "next/font/local";
 import "./globals.css";
-import Footer from "@/Components/Footer/Footer";
-import Navbar from "@/Components/Navbar/Navbar";
+import Footer from "@/components/Footer/Footer";
+import Navbar from "@/components/Navbar/Navbar";
 import { Provider } from "react-redux";
-import store from "./Redux/Store/store.js";
+import store from "./Redux/store/store.js";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
