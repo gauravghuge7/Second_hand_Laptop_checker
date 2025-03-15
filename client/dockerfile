@@ -9,6 +9,7 @@ COPY package*.json ./
 
 # Install dependencies
 RUN npm install
+RUN npm install shadcn
 
 # Copy the rest of the application source code to the container
 COPY . .
