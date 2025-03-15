@@ -8,6 +8,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import { Provider } from "react-redux";
 import store from "./redux/store/store.js";
 
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
