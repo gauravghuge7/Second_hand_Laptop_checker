@@ -1,40 +1,31 @@
 # Stage 1: Build the Next.js app
 FROM node:18-alpine AS builder
 
-# Set the working directory
 WORKDIR /app
 
-# Install dependencies
 COPY package.json package-lock.json ./
 RUN npm install --frozen-lockfile
 
-# Install shadcn components (Ensure they are installed in your project)
-RUN npx shadcn-ui@latest add textarea card button
+# Use the updated ShadCN CLI to add missing components
+RUN npx shadcn@latest add textarea card button
 
-# Copy the rest of the app source code
 COPY . .
 
-# Build the Next.js app
 RUN npm run build
 
-# Stage 2: Run the Next.js app with a minimal image
+# Stage 2: Serve the built app
 FROM node:18-alpine AS runner
 
-# Set working directory
 WORKDIR /app
 
-# Install 'serve' to serve the built application in production
 RUN npm install -g serve
 
-# Copy only necessary files from the builder stage
 COPY --from=builder /app/package.json /app/package-lock.json ./
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/next.config.mjs ./
 
-# Expose the port for the app
 EXPOSE 3000
 
-# Command to serve the Next.js app
 CMD ["serve", "-s", ".next", "-l", "3000"]
